@@ -3,7 +3,7 @@ public class Primes {
         // Replace this statement with your code
         final int N = Integer.parseInt(args[0]);
         System.out.println("Prime numbers up to " + N + ":");
-        boolean[] isPrime = new boolean[N];
+        boolean[] isPrime = new boolean[N + 1];
         int currentPrime = 2;
         for (int i = 0; i < isPrime.length; i++) {
             isPrime[i] = true;
@@ -11,7 +11,7 @@ public class Primes {
         int multiplie = currentPrime + currentPrime;
         while (currentPrime < Math.sqrt(N)) {
             multiplie = currentPrime + currentPrime;
-            while (multiplie < N) {
+            while (multiplie < isPrime.length) {
                 isPrime[multiplie] = false;
                 multiplie += currentPrime;
             }
