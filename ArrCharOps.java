@@ -143,12 +143,16 @@ public class ArrCharOps {
      * The hash value of an empty array is zero.
      */
     public static long hashCode(char[] arr) {
-        // Replace the following statement with your code
         long hashCode = 0;
+
         for (int i = 0; i < arr.length; i++) {
             hashCode += arr[i] * Math.pow(7, arr.length - 1 - i);
         }
-        hashCode += arr[arr.length - 2] * 7 + arr[arr.length - 1];
+        // if (arr.length >= 1) {
+        // if (arr.length >= 2)
+        // hashCode += arr[arr.length - 2] * 7;
+        // hashCode += arr[arr.length - 1];
+        // }
         return hashCode;
     }
 
@@ -182,6 +186,8 @@ public class ArrCharOps {
      *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
+        if (str1.length() == 0 || str2.length() == 0)
+            return -2;
         // Replace the following statement with your code
         for (int i = 0; i < str1.length(); i++)
             if (str1.charAt(i) < str2.charAt(i))
@@ -194,7 +200,8 @@ public class ArrCharOps {
             return -1; // str 1 is smaller
         else if (str1.length() > str2.length())
             return 1; // str 1 is greater
-        else
-            return -2;
+
+        return -2;
+
     }
 }
