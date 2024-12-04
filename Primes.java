@@ -8,7 +8,6 @@ public class Primes {
             isPrime[i] = true;
         }
         int multiplie = currentPrime + currentPrime;
-        System.out.println("Current Prime is " + currentPrime);
         while (currentPrime < Math.sqrt(N)) {
             multiplie = currentPrime + currentPrime;
             while (multiplie < N) {
@@ -18,7 +17,6 @@ public class Primes {
             for (int i = currentPrime + 1; i < N; i++) {
                 if (isPrime[i] == true) {
                     currentPrime = i;
-                    System.out.println("Current Prime is " + currentPrime);
                     break;
                 }
             }
