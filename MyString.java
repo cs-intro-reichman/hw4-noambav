@@ -14,17 +14,36 @@ public class MyString {
         System.out.println(contains("personality", "son")); // true
         System.out.println(contains("personality", "dad")); // false
         System.out.println(contains("resignation", "sign")); // true
+
     }
 
     /** Returns the lowercase version of the given string. */
     public static String lowerCase(String str) {
-        // Replace the following statement with your code
-        return null;
+        String newStr = str.toLowerCase();
+        return newStr;
     }
 
     /** If str1 contains str2, returns true; otherwise returns false. */
     public static boolean contains(String str1, String str2) {
-        // Replace the following statement with your code
+
+        if (str2 == "")
+            return true;
+
+        char firstStr2Char = str2.charAt(0);
+        int firstCharIndex = ArrCharOps.indexOf(str1.toCharArray(), firstStr2Char, 0); // get index of first appearence
+        while (firstCharIndex != -1) {
+            if (str2.length() > str1.length() - firstCharIndex)
+                return false;
+            char[] subWordFrom1 = ArrCharOps.subArray(str1.toCharArray(), firstCharIndex,
+                    firstCharIndex + str2.length());
+
+            if (ArrCharOps.equals(subWordFrom1, str2.toCharArray()))
+                return true;
+            firstCharIndex = ArrCharOps.indexOf(str1.toCharArray(), firstStr2Char, firstCharIndex + 1); // get index of
+                                                                                                        // next
+            // appearence
+        }
+
         return false;
     }
 }
